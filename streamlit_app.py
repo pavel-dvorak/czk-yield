@@ -7,10 +7,17 @@ import json
 from scipy.interpolate import CubicSpline
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
 
+# Nastavení pro server (headless mode)
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+
+# Inicializace driveru
+# Streamlit Cloud si najde cestu k chromium-driveru sám
+driver = webdriver.Chrome(options=chrome_options)
 
 # --- 1. SELENIUM SCRAPER ENGINE ---
 @st.cache_data(ttl=3600)
