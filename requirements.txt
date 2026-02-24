@@ -3,3 +3,7 @@ pandas
 numpy
 scipy
 selenium
+lxml
+html5lib
+lxml
+html5lib
